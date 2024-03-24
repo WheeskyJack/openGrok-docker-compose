@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  opengrok:
+    container_name: opengrok
+    image: opengrok/docker:1.13.6
+    ports:
+      - "8080:8080/tcp"
+    # Volumes store your data between container upgrades
+    volumes:
+       - './src/:/opengrok/src/'  # source code
+       - './etc/:/opengrok/etc/'  # folder contains configuration.xml
+       - './data/:/opengrok/data/'  # index and other things for source code
